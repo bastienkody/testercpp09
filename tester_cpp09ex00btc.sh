@@ -5,14 +5,14 @@
 # ------------------------------------------------------------------------------
 
 #	clone tester repo inside your cpp09 main repo (cd cpp09 && gcl git@github.com:bastienkody/testercpp09.git)
-#	just copy the tester beside your makefile (cp testercpp09/tester_cpp09ex00btc.sh ./)
-#	launch : ./tester_cpp09ex00btc.sh 
-#	look on inputs.txt : cat testercpp09/inputstxt/*
+#	just copy the tester beside your makefile (cp testercpp09/tester_cpp09ex00btc.sh ./ex00)
+#	launch : cd ex00 && ./tester_cpp09ex00btc.sh 
+#	look on inputs.txt : cat ../testercpp09/inputstxt/*
 #	expected files in your cpp09/ex00 : Makefile, main.cpp, BitcoinExchange.{cpp, hpp}
 
 dir=./
 exec="./btc"
-input_dir="testercpp09/inputstxt/"
+input_dir="../testercpp09/inputstxt/"
 
 #turn bool_ to 0 to skip specific tests
 bool_makefile=1
@@ -93,7 +93,7 @@ echo "----------------------------------------------------------------"
 echo -e "${YEL_BG}Format error for input.txt${END}"
 
 echo -e "${BLUE_BG}1 - Empty line (linefeed only) : ${END}"
-cp ${input_dir}input0.txt && mv input0.txt input.txt
+cp ${input_dir}input0.txt ./ && mv input0.txt input.txt
 ${exec} input.txt
 rm input.txt
 echo "----------------------------------------------------------------"
@@ -133,9 +133,6 @@ cp ${input_dir}input5.txt ./ && mv input5.txt input.txt
 ${exec} input.txt
 rm input.txt
 echo "----------------------------------------------------------------"
-
-#echo -e "${YEL_BG}Normal tests${END}"
-
 
 # ------------------------------------------------------------------------------
 #				-----		OUTRO		-----
