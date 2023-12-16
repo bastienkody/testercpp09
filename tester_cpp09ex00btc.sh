@@ -90,31 +90,43 @@ echo -e "${BLUE_BG}1 - Empty line (linefeed only) : ${END}"
 cp inputstxt/input0.txt ./ && mv input0.txt input.txt
 ${exec} input.txt
 rm input.txt
+echo "----------------------------------------------------------------"
 
 echo -e "${BLUE_BG}1 - Multiple title line (date | value) : ${END}"
 cp inputstxt/input1.txt ./ && mv input1.txt input.txt
 ${exec} input.txt
 rm input.txt
+echo "----------------------------------------------------------------"
 
 echo -e "${BLUE_BG}1 - No title line (date | value) : ${END}"
 cp inputstxt/input2.txt ./ && mv input2.txt input.txt
 ${exec} input.txt
 rm input.txt
+echo "----------------------------------------------------------------"
+
+echo -e "${BLUE_BG}1 - Empty title line (date | value) : ${END}"
+cp inputstxt/input2bis.txt ./ && mv input2bis.txt input.txt
+${exec} input.txt
+rm input.txt
+echo "----------------------------------------------------------------"
 
 echo -e "${BLUE_BG}1 - Different name for title line (La date | valeur) : ${END}"
 cp inputstxt/input3.txt ./ && mv input3.txt input.txt
 ${exec} input.txt
 rm input.txt
+echo "----------------------------------------------------------------"
 
 echo -e "${BLUE_BG}1 - Date erros (bad day/month/year, hexa, octal, overflow) : ${END}"
 cp inputstxt/input4.txt ./ && mv input4.txt input.txt
 ${exec} input.txt
 rm input.txt
+echo "----------------------------------------------------------------"
 
 echo -e "${BLUE_BG}1 - Btc value erros : ${END}"
 cp inputstxt/input5.txt ./ && mv input5.txt input.txt
 ${exec} input.txt
 rm input.txt
+echo "----------------------------------------------------------------"
 
 #echo -e "${YEL_BG}Normal tests${END}"
 
