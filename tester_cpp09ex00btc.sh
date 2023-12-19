@@ -92,43 +92,43 @@ echo "----------------------------------------------------------------"
 
 echo -e "${YEL_BG}Format error for input.txt${END}"
 
-echo -e "${BLUE_BG}1 - Empty line (linefeed only) : ${END}"
+echo -e "${BLUE_BG}[input0.txt] --> Empty line (linefeed only) : ${END}"
 cp ${input_dir}input0.txt ./ && mv input0.txt input.txt
 ${exec} input.txt
 rm input.txt
 echo "----------------------------------------------------------------"
 
-echo -e "${BLUE_BG}1 - Multiple title line (date | value) : ${END}"
+echo -e "${BLUE_BG}[input1.txt] --> Multiple title line (date | value) : ${END}"
 cp ${input_dir}input1.txt ./ && mv input1.txt input.txt
 ${exec} input.txt
 rm input.txt
 echo "----------------------------------------------------------------"
 
-echo -e "${BLUE_BG}1 - No title line (date | value) : ${END}"
+echo -e "${BLUE_BG}[input2.txt] --> No title line (date | value) : ${END}"
 cp ${input_dir}input2.txt ./ && mv input2.txt input.txt
 ${exec} input.txt
 rm input.txt
 echo "----------------------------------------------------------------"
 
-echo -e "${BLUE_BG}1 - Empty title line (date | value) : ${END}"
+echo -e "${BLUE_BG}[input2bis.txt] --> Empty title line (date | value) : ${END}"
 cp ${input_dir}input2bis.txt ./ && mv input2bis.txt input.txt
 ${exec} input.txt
 rm input.txt
 echo "----------------------------------------------------------------"
 
-echo -e "${BLUE_BG}1 - Different name for title line (La date | valeur) : ${END}"
+echo -e "${BLUE_BG}[input3.txt] --> Different name for title line (La date | valeur) : ${END}"
 cp ${input_dir}input3.txt ./ && mv input3.txt input.txt
 ${exec} input.txt
 rm input.txt
 echo "----------------------------------------------------------------"
 
-echo -e "${BLUE_BG}1 - Date erros (bad day/month/year, hexa, octal, overflow) : ${END}"
+echo -e "${BLUE_BG}[input4.txt] --> Date erros (bad day/month/year, hexa, octal, overflow) : ${END}"
 cp ${input_dir}input4.txt ./ && mv input4.txt input.txt
 ${exec} input.txt
 rm input.txt
 echo "----------------------------------------------------------------"
 
-echo -e "${BLUE_BG}1 - Btc value erros : ${END}"
+echo -e "${BLUE_BG}[input5.txt] --> Btc value erros (bad day/month/year, hexa, octal, overflow) : ${END}"
 cp ${input_dir}input5.txt ./ && mv input5.txt input.txt
 ${exec} input.txt
 rm input.txt
