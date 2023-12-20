@@ -1,14 +1,8 @@
 #! /bin/bash
 
 # ------------------------------------------------------------------------------
-# 					------- EX 00 BTC EXCHANGE-------
+# 					------- EX 00 BTC EXCHANGE -------
 # ------------------------------------------------------------------------------
-
-#	clone tester repo inside your cpp09 main repo (cd cpp09 && gcl git@github.com:bastienkody/testercpp09.git)
-#	just copy the tester beside your makefile (cp testercpp09/tester_cpp09ex00btc.sh ./ex00)
-#	launch : cd ex00 && ./tester_cpp09ex00btc.sh 
-#	look on inputs.txt : cat ../testercpp09/inputstxt/*
-#	expected files in your cpp09/ex00 : Makefile, main.cpp, BitcoinExchange.{cpp, hpp}
 
 dir=./
 exec="./btc"
