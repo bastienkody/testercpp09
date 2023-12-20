@@ -18,7 +18,7 @@ GREEN="\033[32m"
 RED="\033[31m"
 YEL="\033[33m"
 END="\033[m"
-BLU_BG="\033[44m"
+BLU_BG="\033[36;1m"
 YEL_BG="\033[43;1m"
 RED_BG="\033[41;1m"
 
@@ -40,7 +40,7 @@ echo -e "${YEL_BG}Makefile${END}"
 
 #---------------
 # makefile relink
-echo -ne "${BLU_BG}Test Makefile${END}\t\t"
+echo -ne "${BLU_BG}Test Makefile${END}\t"
 make re 1>/dev/null 2> stderrmake.txt
 make  > stdoutmakebis.txt 2>&1
 [[ -s stderrmake.txt ]] && echo -ne "${RED}make wrote on std err${END}" || echo -ne "${GREEN}no make error${END}" 
@@ -50,7 +50,7 @@ rm -rf stderrmake.txt stdoutmakebis.txt
 
 #-------------------------
 # makefile : flags and rule
-echo -ne "${BLU_BG}Makefile flags${END}\t\t"
+echo -ne "${BLU_BG}Makefile flags${END}\t"
 grep -sq -- "-Wall" Makefile && echo -ne "${GREEN}OK (-Wall)${END}" || echo -ne "${RED}-Wall not found${END}"
 echo -n " -- "
 grep -sq -- "-Wextra" Makefile && echo -ne "${GREEN}OK (-Wextra)${END}" || echo -ne "${RED}-Wextra not found${END}"
@@ -70,165 +70,165 @@ else make >/dev/null ; fi
 ################################################################################
 echo -e "${YEL_BG}Arg error tests (format)${END}"
 
-echo -e "0 -\t\t${BLU_BG}${exec} (no arg)${END}\t"
+echo -e "${BLU_BG}0 -\t${exec} (no arg)${END}\t"
 ${exec}
 echo "----------------------------------------------------------------"
 
-echo -e "1 -\t\t${BLU_BG}${exec} jesuispasunrpn (word)${END}\t"
+echo -e "${BLU_BG}1 -\t${exec} jesuispasunrpn (word)${END}\t"
 ${exec} jesuispasunrpn
 echo "----------------------------------------------------------------"
 
-echo -e "2 -\t\t${BLU_BG}${exec} word1 word2 (multiword) ${END}\t"
+echo -e "${BLU_BG}2 -\t${exec} word1 word2 (multiword) ${END}\t"
 ${exec} word1 word2
 echo "----------------------------------------------------------------"
 
-echo -e "3 -\t\t${BLU_BG}${exec} \"1 1 +\" \"1 1 -\" (multi rpn arg) ${END}\t"
+echo -e "${BLU_BG}3 -\t${exec} \"1 1 +\" \"1 1 -\" (multi rpn arg) ${END}\t"
 ${exec} "1 1 +" "1 1 -"
 echo "----------------------------------------------------------------"
 
-echo -e "4 -\t\t${BLU_BG}${exec} \"1  1   +\" (lots of spaces : up to you to handle) ${END}\t"
+echo -e "${BLU_BG}4 -\t${exec} \"1  1   +\" (lots of spaces : up to you to handle) ${END}\t"
 ${exec} "1  1   +"
 echo "----------------------------------------------------------------"
 
-echo -e "5 -\t\t${BLU_BG}${exec} \" 1 1 + \" (lead/preceding single space : up to you to handle) ${END}\t"
+echo -e "${BLU_BG}5 -\t${exec} \" 1 1 + \" (lead/preceding single space : up to you to handle) ${END}\t"
 ${exec} " 1 1 + "
 echo "----------------------------------------------------------------"
 
-echo -e "6 -\t\t${BLU_BG}${exec} \"  1 1 +   \" (lead/preceding multiple spaces : up to you to handle) ${END}\t"
+echo -e "${BLU_BG}6 -\t${exec} \"  1 1 +   \" (lead/preceding multiple spaces : up to you to handle) ${END}\t"
 ${exec} "  1 1 +   "
 echo "----------------------------------------------------------------"
 
-echo -e "7 -\t\t${BLU_BG}${exec} \"1	1	+	\" (tabs) ${END}\t"
+echo -e "${BLU_BG}7 -\t${exec} \"1	1	+	\" (tabs) ${END}\t"
 ${exec} "1	1	+"
 echo "----------------------------------------------------------------"
 
-echo -e "8 -\t\t${BLU_BG}${exec} \"11+\" (no space) ${END}\t"
+echo -e "${BLU_BG}8 -\t${exec} \"11+\" (no space) ${END}\t"
 ${exec} "11+"
 echo "----------------------------------------------------------------"
 
 ################################################################################
 echo -e "${YEL_BG}Arg error tests (rpn wrong data)${END}"
 
-echo -e "0 -\t\t${BLU_BG}${exec} \"1\" (solo nb) ${END}\t"
+echo -e "${BLU_BG}0 -\t${exec} \"1\" (solo nb) ${END}\t"
 ${exec} "1"
 echo "----------------------------------------------------------------"
 
-echo -e "0bis -\t\t${BLU_BG}${exec} \"1 2 3\" (multi nb) ${END}\t"
+echo -e "${BLU_BG}0bis -\t${exec} \"1 2 3\" (multi nb) ${END}\t"
 ${exec} "1 2 3"
 echo "----------------------------------------------------------------"
 
-echo -e "1 -\t\t${BLU_BG}${exec} \"+\" (solo ope) ${END}\t"
+echo -e "${BLU_BG}1 -\t${exec} \"+\" (solo ope) ${END}\t"
 ${exec} "+"
 echo "----------------------------------------------------------------"
 
-echo -e "1 -\t\t${BLU_BG}${exec} \"+ - *\" (multi ope) ${END}\t"
+echo -e "${BLU_BG}1 -\t${exec} \"+ - *\" (multi ope) ${END}\t"
 ${exec} "+ - *"
 echo "----------------------------------------------------------------"
 
-echo -e "2 -\t\t${BLU_BG}${exec} \"1 +\" (one nb one ope) ${END}\t"
+echo -e "${BLU_BG}2 -\t${exec} \"1 +\" (one nb one ope) ${END}\t"
 ${exec} "1 +"
 echo "----------------------------------------------------------------"
 
-echo -e "3 -\t\t${BLU_BG}${exec} \"+ 1\" (one ope one nb) ${END}\t"
+echo -e "${BLU_BG}3 -\t${exec} \"+ 1\" (one ope one nb) ${END}\t"
 ${exec} "+ 1"
 echo "----------------------------------------------------------------"
 
-echo -e "4 -\t\t${BLU_BG}${exec} \"1 + +\" (ope > nb) ${END}\t"
+echo -e "${BLU_BG}4 -\t${exec} \"1 + +\" (ope > nb) ${END}\t"
 ${exec} "1 + +"
 echo "----------------------------------------------------------------"
 
-echo -e "5 -\t\t${BLU_BG}${exec} \"+ 1 +\" (ope > nb) ${END}\t"
+echo -e "${BLU_BG}5 -\t${exec} \"+ 1 +\" (ope > nb) ${END}\t"
 ${exec} "+ 1 +"
 echo "----------------------------------------------------------------"
 
-echo -e "6 -\t\t${BLU_BG}${exec} \"+ + 1\" (ope > nb) ${END}\t"
+echo -e "${BLU_BG}6 -\t${exec} \"+ + 1\" (ope > nb) ${END}\t"
 ${exec} "+ + 1"
 echo "----------------------------------------------------------------"
 
-echo -e "7 -\t\t${BLU_BG}${exec} \"+ 1 + 1\" (ope == nb) ${END}\t"
+echo -e "${BLU_BG}7 -\t${exec} \"+ 1 + 1\" (ope == nb) ${END}\t"
 ${exec} "+ 1 + 1"
 echo "----------------------------------------------------------------"
 
-echo -e "8 -\t\t${BLU_BG}${exec} \"+ + 1 1\" (ope == nb) ${END}\t"
+echo -e "${BLU_BG}8 -\t${exec} \"+ + 1 1\" (ope == nb) ${END}\t"
 ${exec} "+ + 1 1"
 echo "----------------------------------------------------------------"
 
-echo -e "9 -\t\t${BLU_BG}${exec} \"1 + + 1\" (ope == nb) ${END}\t"
+echo -e "${BLU_BG}9 -\t${exec} \"1 + + 1\" (ope == nb) ${END}\t"
 ${exec} "1 + + 1"
 echo "----------------------------------------------------------------"
 
-echo -e "10 -\t\t${BLU_BG}${exec} \"1 1 + +\" (ope == nb) ${END}\t"
+echo -e "${BLU_BG}10 -\t${exec} \"1 1 + +\" (ope == nb) ${END}\t"
 ${exec} "1 1 + +"
 echo "----------------------------------------------------------------"
 
-echo -e "11 -\t\t${BLU_BG}${exec} \"12 33 + 42 -\" (nb > 10) ${END}\t"
+echo -e "${BLU_BG}11 -\t${exec} \"12 33 + 42 -\" (nb > 10) ${END}\t"
 ${exec} "12 33 + 42 -"
 echo "----------------------------------------------------------------"
 
-echo -e "12 -\t\t${BLU_BG}${exec} \"1 3 + 420 -\" (nb > 10) ${END}\t"
+echo -e "${BLU_BG}12 -\t${exec} \"1 3 + 420 -\" (nb > 10) ${END}\t"
 ${exec} "1 3 + 420 -"
 echo "----------------------------------------------------------------"
 
-echo -e "13 -\t\t${BLU_BG}${exec} \"1 2 %\" (bad ope) ${END}\t"
+echo -e "${BLU_BG}13 -\t${exec} \"1 2 %\" (bad ope) ${END}\t"
 ${exec} "1 2 %"
 echo "----------------------------------------------------------------"
 
-echo -e "14 -\t\t${BLU_BG}${exec} \"1 2 + 3 - 5 =\" (bad ope) ${END}\t"
+echo -e "${BLU_BG}14 -\t${exec} \"1 2 + 3 - 5 =\" (bad ope) ${END}\t"
 ${exec} "1 2 + 3 - 5 ="
 echo "----------------------------------------------------------------"
 
-echo -e "15 -\t\t${BLU_BG}${exec} \"1 - 2 3 + 5 +\" (bad order) ${END}\t"
+echo -e "${BLU_BG}15 -\t${exec} \"1 - 2 3 + 5 +\" (bad order) ${END}\t"
 ${exec} "1 - 2 3 + 5 +"
 echo "----------------------------------------------------------------"
 
-echo -e "16 -\t\t${BLU_BG}${exec} \"- + 5 + 4 3 7\" (bad order) ${END}\t"
+echo -e "${BLU_BG}16 -\t${exec} \"- + 5 + 4 3 7\" (bad order) ${END}\t"
 ${exec} "- + 5 + 4 3 7"
 echo "----------------------------------------------------------------"
 
-echo -e "17 -\t\t${BLU_BG}${exec} \"+5 +4 -\" (positive nb with a + : up to you to handle) ${END}\t"
+echo -e "${BLU_BG}17 -\t${exec} \"+5 +4 -\" (positive nb with a + : up to you to handle) ${END}\t"
 ${exec} "+5 +4 -"
 echo "----------------------------------------------------------------"
 
-echo -e "18 -\t\t${BLU_BG}${exec} \"1 2 3 4 + + -\" (other rpn format : should be handled?) ${END}\t"
-${exec} "1 2 3 4 + + -"
+echo -e "${BLU_BG}18 -\t${exec} \"1 2 3 4 + + -\" (other rpn format : should be handled?) ${END}\t"
+${exec} "- + 5 + 4 3 7"
 echo "----------------------------------------------------------------"
 
-echo -e "19 -\t\t${BLU_BG}${exec} \"1.4 1.34 +\" (not integer) ${END}\t"
+echo -e "${BLU_BG}19 -\t${exec} \"1.4 1.34 +\" (not integer) ${END}\t"
 ${exec} "1.4 1.34 +"
 echo "----------------------------------------------------------------"
 
 ################################################################################
 echo -e "${YEL_BG}Calculation test (only valid data)${END}"
 
-echo -e "0 -\t\t${BLU_BG}${exec} \"1 1 +\" (expected: 2) ${END}\t"
+echo -e "${BLU_BG}0 -\t${exec} \"1 1 +\" (expected: 2) ${END}\t"
 ${exec} "1 1 +"
 echo "----------------------------------------------------------------"
 
-echo -e "0bis -\t\t${BLU_BG}${exec} \"-1 -1 +\" (expected: -2) ${END}\t"
+echo -e "${BLU_BG}0bis -\t${exec} \"-1 -1 +\" (expected: -2) ${END}\t"
 ${exec} "-1 -1 +"
 echo "----------------------------------------------------------------"
 
-echo -e "1 -\t\t${BLU_BG}${exec} \"2 3 *\" (expected: 6) ${END}\t"
+echo -e "${BLU_BG}1 -\t${exec} \"2 3 *\" (expected: 6) ${END}\t"
 ${exec} "2 3 *"
 echo "----------------------------------------------------------------"
 
-echo -e "2 -\t\t${BLU_BG}${exec} \"2 3 -\" (expected: -1) ${END}\t"
+echo -e "${BLU_BG}2 -\t${exec} \"2 3 -\" (expected: -1) ${END}\t"
 ${exec} "2 3 -"
 echo "----------------------------------------------------------------"
 
-echo -e "3 -\t\t${BLU_BG}${exec} \"8 2 /\" (expected: 4) ${END}\t"
+echo -e "${BLU_BG}3 -\t${exec} \"8 2 /\" (expected: 4) ${END}\t"
 ${exec} "8 2 /"
 echo "----------------------------------------------------------------"
 
-echo -e "4 -\t\t${BLU_BG}${exec} \"8 2 / 4 + 1 - 9 * 3 +\" (expected: 66) ${END}\t"
+echo -e "${BLU_BG}4 -\t${exec} \"8 2 / 4 + 1 - 9 * 3 +\" (expected: 66) ${END}\t"
 ${exec} "8 2 / 4 + 1 - 9 * 3 +"
 echo "----------------------------------------------------------------"
 
-echo -e "5 -\t\t${BLU_BG}${exec} \"8 2 / 4 + 1 - 9 * 3 + -1 *\" (expected: -66) ${END}\t"
+echo -e "${BLU_BG}5 -\t${exec} \"8 2 / 4 + 1 - 9 * 3 + -1 *\" (expected: -66) ${END}\t"
 ${exec} "8 2 / 4 + 1 - 9 * 3 + -1 *"
 echo "----------------------------------------------------------------"
 
-echo -e "6 -\t\t${BLU_BG}${exec} \"8 2 4 1 9 3 / + - * +\" (other rpn format, expected: 8) ${END}\t"
+echo -e "${BLU_BG}6 -\t${exec} \"8 2 4 1 9 3 / + - * +\" (other rpn format, expected: 8) ${END}\t"
 ${exec} "8 2 4 1 9 3 / + - * +"
 echo "----------------------------------------------------------------"
 
