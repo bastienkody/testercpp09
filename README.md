@@ -1,7 +1,9 @@
 # WHAT IS THIS
 __Ecole 42 cpp09 tester__  
-[ ON CONSTRUCTION ] --> in december 2023 : only ex00 available  
-[ DISCLAIMER ] : does not state if tests passed or not. It prints the test to be applied and launch it right below : it's UP TO YOU to eyecheck if the program output match the test.
+  
+[ ON CONSTRUCTION ] --> in december 2023 : only ex00 + ex01 available  
+  
+[ DISCLAIMER ] : it only prints the test and launch it : it's UP TO YOU to eyecheck if the program output match the test.
 
 ##	EX00 BitcoinExchange 
 *	Makefile flags and relink
