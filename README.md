@@ -24,10 +24,10 @@ Quick look on all inputs.txt : `cat ../testercpp09/inputstxt/*`
 Quick look on specific test X : `cat ../testercpp09/inputstxt/inputsX.txt`  
 
 ### EX01
-copy the .sh in ex01/ : `cp testercpp09/tester_cpp09ex01rpn.sh ./ex01`  
+copy the tester_cpp09ex01rpn.sh in ex01/ : `cp testercpp09/tester_cpp09ex01rpn.sh ./ex01`  
 launch : `cd ex01 && ./tester_cpp09ex01rpn.sh`  
 
 # REQUIREMENTS
 bash  
 expected files in cpp09/ex00 : Makefile, main.cpp, BitcoinExchange.{cpp, hpp}  
-expected files in cpp09/ex01 : Makefile, main.cpp, BitcoinExchange.{cpp, hpp}  
+expected files in cpp09/ex01 : Makefile, main.cpp, RPN.{cpp, hpp}  
