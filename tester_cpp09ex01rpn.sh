@@ -42,6 +42,7 @@ echo -e "${YEL_BG}Makefile${END}"
 # makefile relink
 echo -ne "${BLU_BG}Test Makefile${END}\t"
 make re 1>/dev/null 2> stderrmake.txt
+sleep 1
 make  > stdoutmakebis.txt 2>&1
 [[ -s stderrmake.txt ]] && echo -ne "${RED}make wrote on std err${END}" || echo -ne "${GREEN}no make error${END}" 
 echo -n " -- "
